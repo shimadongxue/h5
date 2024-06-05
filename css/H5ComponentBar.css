@@ -1,0 +1,58 @@
+/*
+  author: Mike
+  email: zhanmengle@163.com
+*/
+.h5-component-bar .line {
+  position: relative;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 15px;
+  font-size: 12px; }
+
+.h5-component-bar .title {
+  position: absolute;
+  top: 0;
+  left: -75px;
+  width: 70px;
+  height: 20px;
+  line-height: 20px;
+  color: #4c2f2f;
+  text-align: right; }
+
+.h5-component-bar .rate {
+  position: relative;
+  float: left;
+  height: 20px;
+  overflow: hidden; }
+
+.h5-component-bar .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: all 1s .5s;
+  border-radius: 4px; }
+
+.h5-component-bar .per {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  margin-left: 5px;
+  line-height: 20px;
+  transition: all 1s 1.5s;
+  opacity: 0; }
+
+.h5-mybar-onLoad .rate .bg {
+  width: 100%; }
+
+.h5-mybar-onLeave .rate .bg {
+  width: 0; }
+
+.h5-mybar-onLoad .per {
+  opacity: 1; }
+
+.h5-mybar-onLeave .per {
+  opacity: 0; }
+
+/*# sourceMappingURL=H5ComponentBar.css.map */

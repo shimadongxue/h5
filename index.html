@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>h5-六大用户保障</title>
+
+    <!-- lib-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lib/zepto.fullpage.css">
+    <link rel="stylesheet" href="css/H5.css">
+
+    <script src="js/lib/zepto.js"></script>
+    <script src="js/lib/zepto.fullpage.js"></script>
+    <script src="js/H5.js"></script>
+    <!-- lib-->
+
+
+</head>
+<body>
+
+<script type="text/javascript">
+
+    var src = ['Bar', 'Base', 'Gridline', 'Pie', 'Point', 'Radar', 'Rank'];
+
+    var html = [];
+
+    for ( var s in src ) {
+        html.push( '<script type="text/javascript" src="js/H5Component'+ src[s]+'.js"><\/script>');
+        html.push( '<link rel="stylesheet" href="css/H5Component'+ src[s]+'.css">');
+    }
+
+    document.write( html.join('') );
+</script>
+<div class="wp"></div>
+
+
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        var cfgBase = {
+            type: 'base',
+            width: 200,
+            height: 100,
+            center: true,
+            bg: './imgs/p1_people.png',
+            css: {
+                top: 0,
+                marginTop: '-50px',
+                opacity: 0
+            },
+            animationIn: {
+                top: '50%',
+                opacity: 1
+            },
+            animationOut: {
+                top: '10px',
+                opacity: 0
+            }
+        };
+        var cfgPoint = {
+            type: 'point',
+            center: true,
+            width: 150,
+            height: 150,
+            css: {
+                bottom: '20%',
+                opacity: 0
+            },
+            data: [
+                [ '中级', 0.8, 'red'],
+                [ '高级', 0.6, 'green', '-140', '100' ],
+                [ '初级', 0.5, 'orange', '-110', '-60' ]
+            ],
+            animationIn: {
+                opacity: 1
+            },
+            animationOut: {
+                opacity: 0
+            }
+        };
+        var cfgBar = {
+            type: 'bar',
+            width: 160,
+            height: 160,
+            center: true,
+            css: {
+                top: 0,
+                marginTop: '-60px',
+                opacity: 0
+            },
+            data: [
+                ['JQuery', 1, '#f34851'],
+                ['JavaScript', 0.2, '#3e66a5'],
+                ['HTML5', 0.7, '#77c769'],
+                ['CSS3', 0.8, '#e22fec'],
+                ['AngluarJS', 0.4, '#f78f89']
+
+            ],
+            animationIn: {
+                top: '50%',
+                opacity: 1
+            },
+            animationOut: {
+                top: 0,
+                opacity: 0
+            }
+        };
+        var cfgRank = {
+            type: 'rank',
+            width: 280,
+            height: 150,
+            center: true,
+            css: {
+                marginTop: '-75px',
+                opacity: 0
+
+            },
+            data: [
+                ['JQuery', 1, '#f34851'],
+                ['JavaScript', 0.2, '#3e66a5'],
+                ['HTML5', 0.7, '#77c769'],
+                ['CSS3', 0.8, '#e22fec'],
+                ['AngluarJS', 0.4, '#f78f89']
+
+            ],
+            animationIn: {
+                top: '50%',
+                opacity: 1
+            },
+            animationOut: {
+                top: 0,
+                opacity: 0
+            }
+        };
+        var cfgGridline = {
+            type: 'gridline',
+            width: 300,
+            height: 200,
+            center: true,
+            css: {
+                top: '0',
+                opacity: 0
+            },
+            data: [
+                ['JQuery', .7, '#f34851'],
+                ['JavaScript', 0.3, '#3e66a5'],
+                ['HTML5', 0.6, '#77c769'],
+                ['CSS3', 0.8, '#e22fec'],
+                ['VUE', 0.2, '#e22fff'],
+                ['AngluarJS', 0.4, '#f78f89']
+            ],
+            animationIn: {
+                top: '50%',
+                opacity: 1
+            },
+            animationOut: {
+                top: '0',
+                opacity: 0
+            }
+        };
+        var cfgRadar = {
+            type: 'radar',
+            width: 260,
+            height: 260,
+            center: true,
+            css: {
+                marginTop: '-130px',
+                top: 0,
+                opacity: 0
+            },
+            data: [
+                ['JQuery', 0.4, '#f34851'],
+                ['JavaScript', 0.6, '#3e66a5'],
+                ['HTML5', 0.7, '#77c769'],
+                ['CSS3', 0.9, '#e22fec'],
+                ['AngluarJS', 0.6, '#f78f89']
+            ],
+            animationIn: {
+                top: '50%',
+                opacity: 1
+            },
+            animationOut: {
+                top: 0,
+                opacity: 0
+            }
+        };
+
+        var cfgPie = {
+            type: 'pie',
+            width: 260,
+            height: 260,
+            center: true,
+            css: {
+                bottom: '40px',
+                opacity: 0
+            },
+            data: [
+                ['JQuery', 0.25, 'rgba(239,94,94,.7)'],
+                ['JavaScript', 0.35, 'rgba(64,181,92,.6)'],
+                ['HTML5', 0.2, 'rgba(181,64,110,.9)'],
+                ['CSS3', 0.1, 'rgba(171,64,181,.6)'],
+                ['AngluarJS', 0.1, 'rgba(0,178,255,.6)']
+            ],
+            animationIn: {
+                bottom: '25%',
+                opacity: 1
+            },
+            animationOut: {
+                bottom: '40px',
+                opacity: 0
+            }
+        };
+
+
+        var H5 = new H5Component();
+
+
+        H5.addPage('base')
+                .addComponent('logo',{
+                    type: 'base',
+                    width: 197,
+                    height: 65,
+                    bg: './imgs/face_logo.png',
+                    center: true,
+                    css: {
+                        top: 0,
+                        opacity: 0
+                    },
+                    animationIn: {
+                        top: '100px',
+                        opacity: 1
+                    },
+                    animationOut: {
+                        top: '10px',
+                        opacity: 0
+                    }
+                 })
+                .addComponent('logo',{
+                        type: 'base',
+                        width: 182,
+                        height: 50,
+                        bg: './imgs/face_slogan.png',
+                        center: true,
+                            css: {
+                                top: 180,
+                                opacity: 0
+                        },
+                        animationIn: {
+                                left:'50%',
+                                opacity: 1
+                        },
+                        animationOut: {
+                                left:'0%',
+                                opacity: 0
+                        },
+                        delay:500
+                })
+                .addComponent('face-left',{
+                    type: 'base',
+                    width:185,
+                    height:246,
+                    bg:'./imgs/face_img_left.png',
+                    css:{opacity:0,left:'-50px',bottom:'-50px'},
+                    animationIn:{opacity:1,left:0,bottom:0},
+                    animationOut:{opacity:0,left:'-50px',bottom:'-50px'},
+                    delay:1000
+                })
+                .addComponent('face-right',{
+                    type: 'base',
+                    width:138,
+                    height:224,
+                    bg:'./imgs/face_img_right.png',
+                    css:{opacity:0,right:'-50px',bottom:'-50px'},
+                    animationIn:{opacity:1,right:0,bottom:0},
+                    animationOut:{opacity:0,right:'-50px',bottom:'-50px'},
+                    delay:1000
+                })
+                .addPage('logo')
+                .addComponent('slogan', {
+                    type: 'base',
+                    text: '核心理念',
+                    width: 278,
+                    height: 160,
+                    bg: './imgs/page_caption_bg.png',
+                    css: {
+                        top: '5%',
+                        left: 0,
+                        fontSize: 18,
+                        textAlign: 'center',
+                        lineHeight: '140px',
+                        color: '#ffffff'
+                    }
+
+
+                })
+                .addComponent('people', {
+                    type: 'base',
+                    width: 257,
+                    height: 152,
+                    bg: './imgs/p1_people.png',
+                    center: true,
+                    css: {
+                        bottom: '30px',
+                        opacity: 0
+                    },
+                    animationIn: {
+                        bottom: '8%',
+                        opacity: 1
+                    },
+                    animationOut: {
+                        bottom: '30px',
+                        opacity: 0
+                    }
+
+                })
+                .addComponent('text', {
+                    type: 'base',
+                    text: 'IT教育网作为IT领域权威的远程在线教育平台,拥有丰富的it视频教程,其中包括:移动端开发、大数据、JAVA开发、php开发、android开发、云计算、ios开发、JavaScript等...',
+                    width: 260,
+                    height: 167,
+                    bg: './imgs/description_bg.gif',
+                    center: true,
+                    css: {
+                        bottom: '45%',
+                        marginBottom: '-80px',
+                        opacity: 0,
+                        color: '#fff',
+                        padding: '5px 8px 5px 10px'
+                    },
+                    animationIn: {
+                        bottom: '55%',
+                        opacity: 1
+                    },
+                    animationOut: {
+                        bottom: '45%',
+                        opacity: 0
+                    },
+                    delay: 500
+
+    })
+                .addPage('gridline')
+                .addComponent('slogan', {
+                    type: 'base',
+                    text: '课程方向分布',
+                    width: 278,
+                    height: 160,
+                    bg: './imgs/page_caption_bg.png',
+                    css: {
+                        top: '5%',
+                        left: 0,
+                        fontSize: 18,
+                        textAlign: 'center',
+                        lineHeight: '140px',
+                        color: '#ffffff'
+                    }
+
+
+                })
+                .addComponent('info', {
+                    type: 'base',
+                    text: '课程分布前端开发占到40%',
+                    width: 250,
+                    height: 24,
+                    center: true,
+                    css: {
+                        top: '35%',
+                        fontSize: '15px',
+                        color: '#000',
+                        textAlign: 'center',
+                        opacity: 0
+                    },
+                    animationIn: {
+                        opacity: 1
+                    },
+                    animationOut: {
+                        opacity: 0
+                    },
+                    delay: 500
+                })
+                .addComponent('mygridline', cfgGridline)
+                .addPage('pie')
+                .addComponent('slogan', {
+                    type: 'base',
+                    text: '移动开发',
+                    width: 278,
+                    height: 160,
+                    bg: './imgs/page_caption_bg.png',
+                    css: {
+                        top: '5%',
+                        left: 0,
+                        fontSize: 18,
+                        textAlign: 'center',
+                        lineHeight: '140px',
+                        color: '#ffffff'
+                    }
+
+
+                })
+                .addComponent('info', {
+                    type: 'base',
+                    text: '移动开发Android占比最大',
+                    width: 250,
+                    height: 24,
+                    center: true,
+                    css: {
+                        bottom: '15%',
+                        fontSize: '15px',
+                        color: '#000',
+                        textAlign: 'center',
+                        opacity: 0
+                    },
+                    animationIn: {
+                        opacity: 1
+                    },
+                    animationOut: {
+                        opacity: 0
+                    },
+                    delay: 500
+                })
+                .addComponent('mypie',cfgPie)
+                .addPage('bar')
+                .addComponent('info', {
+                    type: 'base',
+                    text: '课程分布前端开发占到40%',
+                    width: 250,
+                    height: 24,
+                    center: true,
+                    css: {
+                        bottom: '15%',
+                        fontSize: '15px',
+                        color: '#000',
+                        textAlign: 'center'
+                    }
+                })
+                .addComponent('slogan', {
+                    type: 'base',
+                    text: '前端开发',
+                    width: 278,
+                    height: 160,
+                    bg: './imgs/page_caption_bg.png',
+                    css: {
+                        top: '5%',
+                        left: 0,
+                        fontSize: 18,
+                        textAlign: 'center',
+                        lineHeight: '140px',
+                        color: '#ffffff'
+                    }
+
+
+                })
+                .addComponent('mybar', cfgBar)
+                .addPage('radar')
+                .addComponent('slogan', {
+                    type: 'base',
+                    text: '后端处理',
+                    width: 278,
+                    height: 160,
+                    bg: './imgs/page_caption_bg.png',
+                    css: {
+                        top: '5%',
+                        left: 0,
+                        fontSize: 18,
+                        textAlign: 'center',
+                        lineHeight: '140px',
+                        color: '#ffffff'
+                    }
+
+
+                })
+                .addComponent('myradar',cfgRadar)
+                .addPage('point')
+                .addComponent('slogan', {
+                    type: 'base',
+                    text: '课程方向分布',
+                    width: 278,
+                    height: 160,
+                    bg: './imgs/page_caption_bg.png',
+                    css: {
+                        top: '5%',
+                        left: 0,
+                        fontSize: 18,
+                        textAlign: 'center',
+                        lineHeight: '140px',
+                        color: '#ffffff'
+                    }
+
+
+                })
+                .addComponent('mypoint', cfgPoint)
+                .addComponent('info', {
+                    type: 'base',
+                    text: '课程难度分布，中级课程占到80%',
+                    width: 250,
+                    height: 24,
+                    center: true,
+                    css: {
+                        bottom: '10%',
+                        fontSize: '15px',
+                        color: '#000',
+                        textAlign: 'center'
+                    }
+                })
+
+                .addPage('rank')
+                .addComponent('slogan', {
+                    type: 'base',
+                    text: '前端开发',
+                    width: 278,
+                    height: 160,
+                    bg: './imgs/page_caption_bg.png',
+                    css: {
+                        top: '5%',
+                        left: 0,
+                        fontSize: 18,
+                        textAlign: 'center',
+                        lineHeight: '140px',
+                        color: '#ffffff'
+                    }
+
+
+                })
+                .addComponent('info', {
+                    type: 'base',
+                    text: '课程分布前端开发占到40%',
+                    width: 250,
+                    height: 24,
+                    center: true,
+                    css: {
+                        bottom: '10%',
+                        fontSize: '15px',
+                        color: '#000',
+                        textAlign: 'center'
+                    }
+                })
+                .addComponent('myrank', cfgRank)
+
+                .addPage('footer')
+                .addComponent('logo',{
+                    type: 'base',
+                    width: 197,
+                    height: 65,
+                    bg: './imgs/tail_logo.png',
+                    center: true,
+                    css: {
+                        top: '30%',
+                        opacity: 1
+                    }
+
+                })
+                .addComponent('logo',{
+                    type: 'base',
+                    width: 197,
+                    height: 65,
+                    bg: './imgs/tail_slogan.png',
+                    center: true,
+                    css: {
+                        top: '45%',
+                        opacity: 1
+                    }
+
+                })
+                .addComponent('share',{
+                    type: 'base',
+                    width: 64,
+                    height: 60,
+                    bg: './imgs/tail_share.png',
+                    css: {
+                        top: '100px',
+                        right: '100px',
+                        opacity: 0
+                    },
+                    animationIn: {
+                        top: '20px',
+                        right: '20px',
+                        opacity: 1
+                    },
+                    animationOut: {
+                        top: '100px',
+                        right: '100px',
+                        opacity: 0
+                    }
+
+                })
+                .addComponent('back',{
+                    type: 'base',
+                    width: 26,
+                    height: 25,
+                    bg: './imgs/tail_back.png',
+                    center: true,
+                    css: {
+                        top: '50px',
+                        opacity: 1
+                    }
+                })
+
+                .loader();
+
+    })
+</script>
+
+</body>
+</html>
+
+

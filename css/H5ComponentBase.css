@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/*
+  author: Mike
+  email: zhanmengle@163.com
+*/
+.h5-component {
+  position: absolute; }
+
+.h5-component-back {
+  animation: myfirst 2s infinite ease-in-out;
+  -webkit-animation: myfirst 2s infinite ease-in-out;
+  /* Safari 和 Chrome */ }
+
+@keyframes myfirst {
+  50% {
+    top: 25px; } }
+@-webkit-keyframes myfirst /* Safari 和 Chrome */ {
+  50% {
+    top: 25px; } }
+
+/*# sourceMappingURL=H5ComponentBase.css.map */

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/*
+  author: Mike
+  email: zhanmengle@163.com
+*/
+
+.h5-component-radar canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*background-color: #f2f2f2;*/
+}
+
+.h5-component-radar .title {
+  position: absolute;
+  display: inline-block;
+  font-size: 12px;
+  z-index: 99;
+  opacity: 0;
+}
+
+.h5-myradar-onLoad .title {
+  opacity: 1;
+}
+
+.h5-myradar-leave .title {
+  opacity: 0;
+}
